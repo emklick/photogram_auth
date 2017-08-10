@@ -1,6 +1,12 @@
 class PhotosController < ApplicationController
   skip_before_action :authenticate_user!, :only => [:index, :show]
   
+  def favorites
+    @photos = current_user.liked_photos
+    
+    render("photos/favorites.html.erb")
+  end
+  
   def index
     @photos = Photo.all
 
@@ -24,7 +30,7 @@ class PhotosController < ApplicationController
 
     @photo.caption = params[:caption]
     @photo.image = params[:image]
-    @photo.user_id = params[:user_id]
+    @photo.user_id = current_user.id
 
     save_status = @photo.save
 
@@ -46,7 +52,7 @@ class PhotosController < ApplicationController
 
     @photo.caption = params[:caption]
     @photo.image = params[:image]
-    @photo.user_id = params[:user_id]
+    @photo.user_id = current_user.id
 
     save_status = @photo.save
 
