@@ -47,12 +47,10 @@
 
         <p>
             <form action="/create_like" method="post">
-              <!-- Hidden input for authenticity token to protect from forgery -->
-              <input name="authenticity_token" type="hidden" value="YL30XUM5obwtrn/07cU76kulcgsOzdwSUyFvPgPNdD39Ep2UOi+HGJ1eRPZh44aUX8IdqSOwKgSm4S5gPeRG6Q==">
 
-              <input type="hidden" name="photo_id" value="144">
+              <input type="hidden" name="photo_id" value="<%= photo.id %>">
 
-              <input type="hidden" name="user_id" value="187">
+              <input type="hidden" name="user_id" value="<%= photo.user_id %>">
 
               <button class="btn btn-link">
                 <i class="fa fa-heart-o"></i>
@@ -61,25 +59,22 @@
               <small class="text-muted">be the first to like this</small>
             </form>
         </p>
-
-
-            
-        <!--<li> <%=  %></li>        -->
-        
-      <!--<% @comments.each do |comment| %>     -->
       
-      <!--  <li class="media">-->
-      <!--      <div class="media-body">-->
-      <!--        <h6 class="media-heading">-->
-      <!--          <a comment.user_id</a>-->
-      <!--          <small>-->
-      <!--            3 days ago-->
-      <!--          </small>-->
-      <!--        </h6>-->
-      <!--        comment.body-->
-      <!--      </div>-->
-      <!--    </li>-->
-      <!--    <% end %>        -->
+      <% @comment.each do |comment| %>
+      
+        <li class="media">
+            <div class="media-body">
+              <h6 class="media-heading">
+                <a></a>
+                <small>
+                  3 days ago
+                </small>
+              </h6>
+              <%= comment.body %>
+            </div>
+          </li>
+          
+      <% end %>
                          
         <li class="media">
             <div class="media-body">
@@ -111,9 +106,7 @@
             </div>
           </li>
           
-        <li>
 
-        </li>
 
      <div class="btn-group btn-group-justified">
       <a href="/photos" class="btn btn-primary">
