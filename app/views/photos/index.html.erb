@@ -40,8 +40,30 @@
           </li>
           
 
-        <li><div class="panel-body"><img src="<%= photo.image %>"class="img-responsive"></li>
+        <li>
+          <div class="panel-body"><img src="<%= photo.image %>"class="img-responsive">
+        </li>
 
+
+        <p>
+            <form action="/create_like" method="post">
+              <!-- Hidden input for authenticity token to protect from forgery -->
+              <input name="authenticity_token" type="hidden" value="YL30XUM5obwtrn/07cU76kulcgsOzdwSUyFvPgPNdD39Ep2UOi+HGJ1eRPZh44aUX8IdqSOwKgSm4S5gPeRG6Q==">
+
+              <input type="hidden" name="photo_id" value="144">
+
+              <input type="hidden" name="user_id" value="187">
+
+              <button class="btn btn-link">
+                <i class="fa fa-heart-o"></i>
+              </button>
+
+              <small class="text-muted">be the first to like this</small>
+            </form>
+        </p>
+
+
+            
         <!--<li> <%=  %></li>        -->
         
       <!--<% @comments.each do |comment| %>     -->
@@ -90,27 +112,24 @@
           </li>
           
         <li>
-    <div class="btn-group btn-group-justified">
+
+        </li>
+
+      <div class="btn-group btn-group-justified">
       <a href="/photos" class="btn btn-primary">
         Back
       </a>
-      
-      <% if current_user.id == @photo.user %>
-        <a href="/photos/<%= @photo.id %>/edit" class="btn btn-warning">
+        <a href="/photos/<%= photo.id %>/edit" class="btn btn-warning">
           Edit
         </a>
-        <a href="/delete_photo/<%= @photo.id %>" class="btn btn-danger" rel="nofollow">
+        <a href="/delete_photo/<%= photo.id %>" class="btn btn-danger" rel="nofollow">
           Delete
         </a>
-      <% end %>
     </div>
-        </li>
-        <td>
-          
 
         </ul>
           
-        </td>
+        
       </tr>
       
       <% end %>
