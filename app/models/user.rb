@@ -11,4 +11,10 @@ class User < ApplicationRecord
   has_many :liked_photos, :through => :likes, :source => :photo
   
   validates :username, :presence => true, :uniqueness => { :case_sensitive => false }
+  
+  class User < ActiveRecord::Base
+  mount_uploader :avatar, AvatarUploader
+  end
+  
+  
 end
