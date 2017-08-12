@@ -9,6 +9,7 @@ class PhotosController < ApplicationController
   
   def index
     @photos = Photo.all
+    
 
     render("photos/index.html.erb")
   end
