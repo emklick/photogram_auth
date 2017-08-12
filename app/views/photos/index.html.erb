@@ -33,7 +33,41 @@
           <a href="/photos/<%= photo.id %>/edit" class="btn btn-warning">Edit</a>
           <a href="/delete_photo/<%= photo.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
         </td>
+        <td>
+          
+                    <li class="media">
+            <div class="media-body">
+              <form action="/create_comment" method="post">
+                <!-- Hidden input for authenticity token to protect from forgery -->
+                <input name="authenticity_token" type="hidden" value="jkpbmHPTurcwD0lHafrspyUfKQ9IQRuHsi7G17EAAMAT5TJRCsWcE4D/ckXl3FHZMXhGrWU87ZFH7oeJjykyFA==">
+
+                <input type="hidden" name="photo_id" value="139">
+
+                <input type="hidden" name="user_id" value="187">
+
+                <!-- Label and input for body -->
+                <div class="form-group">
+                  <label for="body" class="sr-only">
+                    Body
+                  </label>
+
+                  <div class="input-group">
+                    <input type="text" id="body" name="body" class="form-control" placeholder="Add a comment..." required>
+
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="submit">
+                        <i class="fa fa-commenting-o"></i>
+                      </button>
+                    </span>
+                  </div><!-- /input-group -->
+                </div>
+              </form>
+            </div>
+          </li>
+          
+        </td>
       </tr>
+      
       <% end %>
     </table>
   </div>
