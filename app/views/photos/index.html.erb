@@ -26,7 +26,20 @@
       <% @photos.each do |photo| %>
       <tr>
         <ul class="media-list">
-        <li><%= photo.caption %></li>
+          
+          <li class="media">
+            <div class="media-body">
+              <h6 class="media-heading">
+                <a href="/users/189">carol</a>
+                <small>
+                  3 days ago
+                </small>
+              </h6>
+              <%= photo.caption %>
+            </div>
+          </li>
+          
+
         <li><div class="panel-body"><img src="<%= photo.image %>"class="img-responsive"></li>
         <li><%= photo.user_id %></li>
         <li>                    <li class="media">
