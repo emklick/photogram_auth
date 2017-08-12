@@ -60,7 +60,7 @@
             </form>
         </p>
       
-      <% @comment.each do |comment| %>
+      <% Comment.where(:photo_id => photo.id).each do |comment| %>
       
         <li class="media">
             <div class="media-body">
